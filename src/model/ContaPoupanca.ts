@@ -1,33 +1,23 @@
-export class Conta {
-  protected numero: number;
-  protected agencia: number;
-  protected tipo: number;
-  protected titular: string;
-  protected saldo: number;
+import { Conta } from "./Conta";
 
-  constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
-    this.numero = numero;
-    this.agencia = agencia;
-    this.tipo = tipo;
-    this.titular = titular;
-    this.saldo = saldo;
-  }
+export class ContaPoupanca extends Conta {
 
-  public sacar(valor: number): void {
-    if (valor > this.saldo) {
-      console.log("Saldo insuficiente!");
-    } else {
-      this.saldo -= valor;
-      console.log("Saque realizado com sucesso!");
-    }
-  }
+  private rendimento: number;
 
-  public depositar(valor: number): void {
-    this.saldo += valor;
-    console.log("Depósito realizado com sucesso!");
+  constructor(
+    numero: number,
+    agencia: number,
+    tipo: number,
+    titular: string,
+    saldo: number,
+    rendimento: number
+  ) {
+    super(numero, agencia, tipo, titular, saldo);
+    this.rendimento = rendimento;
   }
 
   public visualizar(): void {
-    console.log(`Conta: ${this.numero} | Titular: ${this.titular} | Saldo: ${this.saldo}`);
+    super.visualizar();
+    console.log(`Rendimento: ${this.rendimento.toFixed(2)}%`);
   }
 }
