@@ -1,6 +1,6 @@
 export class Conta {
 
-  protected numero: number;
+  public numero: number;
   protected agencia: number;
   protected tipo: number;
   protected titular: string;
@@ -39,4 +39,11 @@ export class Conta {
     console.log(`Titular: ${this.titular}`);
     console.log(`Saldo: R$ ${this.saldo.toFixed(2)}`);
   }
+
+
+  public getTipo(): number {
+  return this.tipo;
 }
+}
+
+
